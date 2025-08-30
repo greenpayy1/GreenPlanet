@@ -1,0 +1,1 @@
+Place your Open Graph image here as default-og.jpg (1200x630 recommended).

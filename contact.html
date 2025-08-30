@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Contact | Green Planet Advisory</title>
+  <meta name="description" content="Book a free 20-minute consultation and tell us about your project.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://greenplanet.eco/contact.html">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a href="index.html" class="logo">Green Planet Advisory</a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="solar.html">Solar</a></li>
+        <li><a href="developers.html">Developers</a></li>
+        <li><a href="ev.html">EV Advisory</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="section">
+  <div class="container">
+    <h1>Let’s talk</h1>
+    <p class="lead">Book a free 20-minute consultation. Tell us about your restaurant, school, hotel, office, beauty salon, or city project.</p>
+
+    <form class="form" name="contact" method="POST" action="https://formsubmit.co/info@greenplanet.eco">
+      <input type="hidden" name="_subject" value="New inquiry from GreenPlanet.eco">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://greenplanet.eco/contact.html?sent=1">
+      <input type="text" name="_honey" style="display:none">
+      <label>
+        Name
+        <input type="text" name="name" required>
+      </label>
+      <label>
+        Email
+        <input type="email" name="email" required>
+      </label>
+      <label>
+        Phone
+        <input type="tel" name="phone">
+      </label>
+      <label>
+        Your project
+        <textarea name="message" placeholder="Tell us about your goals"></textarea>
+      </label>
+      <button class="cta" type="submit">Send</button>
+    </form>
+
+    <div id="success" class="notice" hidden>Thanks! We received your message and will reply shortly.</div>
+    <script>
+      (function(){
+        var params = new URLSearchParams(window.location.search);
+        if (params.get('sent') === '1') {
+          var el = document.getElementById('success');
+          if (el) el.hidden = false;
+        }
+      })();
+    </script>
+
+    <hr class="sep">
+
+    <h2>Contact options</h2>
+    <ul class="list">
+      <li>Email: <a href="mailto:info@greenplanet.eco">info@greenplanet.eco</a></li>
+      <li>WhatsApp: <a href="https://wa.me/971529175892" target="_blank" rel="noopener">wa.me/971529175892</a> · +971529175892</li>
+      <li>Instagram: <a href="https://instagram.com/greenplanet.ae" target="_blank" rel="noopener">@greenplanet.ae</a></li>
+      <li>LinkedIn: Green Planet Advisory</li>
+    </ul>
+
+    <h2>Company</h2>
+    <p><strong>Green Planet Advisory</strong><br>Dubai, UAE</p>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p class="small">© Green Planet Advisory. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>

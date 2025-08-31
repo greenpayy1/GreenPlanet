@@ -5,86 +5,221 @@
   <title>Contact | Green Planet Advisory</title>
   <meta name="description" content="Book a free 20-minute consultation and tell us about your project.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#23a36f">
   <link rel="canonical" href="https://greenplanet.eco/contact.html">
+
+  <!-- Tailwind / Fonts / Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Optional legacy CSS -->
   <link rel="stylesheet" href="assets/css/styles.css">
+
+  <style>
+    body{font-family:'Poppins',sans-serif;scroll-behavior:smooth}
+    .hero-gradient{background:linear-gradient(135deg,rgba(16,185,129,.9) 0%,rgba(5,150,105,.9) 100%)}
+    .card{transition:all .3s ease}
+    .card:hover{transform:translateY(-5px);box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 10px 10px -5px rgba(0,0,0,.04)}
+    .input{background:rgba(255,255,255,.9)}
+  </style>
 </head>
-<body>
-<header>
-  <div class="container nav">
-    <a href="index.html" class="logo">Green Planet Advisory</a>
-    <nav aria-label="Primary">
-      <ul>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="solar.html">Solar</a></li>
-        <li><a href="developers.html">Developers</a></li>
-        <li><a href="ev.html">EV Advisory</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+<body class="bg-gray-50">
 
-<main class="section">
-  <div class="container">
-    <h1>Let’s talk</h1>
-    <p class="lead">Book a free 20-minute consultation. Tell us about your restaurant, school, hotel, office, beauty salon, or city project.</p>
+  <!-- Header (shared) -->
+  <header class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto px-6 py-2">
+      <div class="flex items-center justify-between h-12">
+        <a href="index.html" class="text-sm font-bold bg-gradient-to-r from-emerald-600 to-emerald-800 bg-clip-text text-transparent" aria-label="Green Planet Advisory home">Green Planet Advisory</a>
+        <nav class="hidden md:flex items-center space-x-6" aria-label="Primary">
+          <a href="services.html" class="text-gray-700 font-medium text-sm hover:text-emerald-700">Services</a>
+          <a href="solar.html" class="text-gray-700 font-medium text-sm hover:text-emerald-700">Solar</a>
+          <a href="developers.html" class="text-gray-700 font-medium text-sm hover:text-emerald-700">Developers</a>
+          <a href="ev.html" class="text-gray-700 font-medium text-sm hover:text-emerald-700">EV Advisory</a>
+          <a href="projects.html" class="text-gray-700 font-medium text-sm hover:text-emerald-700">Projects</a>
+          <a href="contact.html" class="bg-gradient-to-r from-emerald-500 to-emerald-700 hover:from-emerald-600 hover:to-emerald-800 text-white px-4 py-1.5 text-sm rounded-full font-medium transition-all shadow-sm hover:shadow-md">Contact</a>
+        </nav>
+        <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-emerald-600 focus:outline-none" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg" role="dialog" aria-label="Mobile menu">
+      <div class="px-2 pt-2 pb-4 space-y-1">
+        <a href="services.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Services</a>
+        <a href="solar.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Solar</a>
+        <a href="developers.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Developers</a>
+        <a href="ev.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">EV Advisory</a>
+        <a href="projects.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Projects</a>
+        <a href="contact.html" class="block mt-2 bg-gradient-to-r from-emerald-500 to-emerald-700 hover:from-emerald-600 hover:to-emerald-800 text-white px-4 py-2 rounded-full font-medium transition-all shadow-sm hover:shadow-md text-center">Contact</a>
+      </div>
+    </div>
+  </header>
 
-    <form class="form" name="contact" method="POST" action="https://formsubmit.co/info@greenplanet.eco">
-      <input type="hidden" name="_subject" value="New inquiry from GreenPlanet.eco">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://greenplanet.eco/contact.html?sent=1">
-      <input type="text" name="_honey" style="display:none">
-      <label>
-        Name
-        <input type="text" name="name" required>
-      </label>
-      <label>
-        Email
-        <input type="email" name="email" required>
-      </label>
-      <label>
-        Phone
-        <input type="tel" name="phone">
-      </label>
-      <label>
-        Your project
-        <textarea name="message" placeholder="Tell us about your goals"></textarea>
-      </label>
-      <button class="cta" type="submit">Send</button>
-    </form>
+  <!-- Hero -->
+  <section class="hero-gradient text-white">
+    <div class="container mx-auto px-6 py-20 md:py-24">
+      <div class="max-w-3xl">
+        <h1 class="text-3xl md:text-5xl font-bold mb-4">Let’s talk</h1>
+        <p class="text-lg md:text-xl text-emerald-100">Book a free 20-minute consultation. Tell us about your restaurant, school, hotel, office, beauty salon, or city project.</p>
+      </div>
+    </div>
+  </section>
 
-    <div id="success" class="notice" hidden>Thanks! We received your message and will reply shortly.</div>
-    <script>
-      (function(){
-        var params = new URLSearchParams(window.location.search);
-        if (params.get('sent') === '1') {
-          var el = document.getElementById('success');
-          if (el) el.hidden = false;
-        }
-      })();
-    </script>
+  <!-- Contact content -->
+  <main class="py-14">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-10">
+        <!-- Form -->
+        <section class="bg-white rounded-2xl shadow p-6 md:p-8">
+          <h2 class="text-xl font-semibold text-gray-800 mb-4">Send us a message</h2>
+          <form class="grid grid-cols-1 gap-4" name="contact" method="POST" action="https://formsubmit.co/info@greenplanet.eco">
+            <input type="hidden" name="_subject" value="New inquiry from GreenPlanet.eco">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://greenplanet.eco/contact.html?sent=1">
+            <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off">
 
-    <hr class="sep">
+            <label class="block">
+              <span class="text-gray-700">Name</span>
+              <input class="mt-1 input w-full rounded-lg border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500" type="text" name="name" required>
+            </label>
 
-    <h2>Contact options</h2>
-    <ul class="list">
-      <li>Email: <a href="mailto:info@greenplanet.eco">info@greenplanet.eco</a></li>
-      <li>WhatsApp: <a href="https://wa.me/971529175892" target="_blank" rel="noopener">wa.me/971529175892</a> · +971529175892</li>
-      <li>Instagram: <a href="https://instagram.com/greenplanet.ae" target="_blank" rel="noopener">@greenplanet.ae</a></li>
-      <li>LinkedIn: Green Planet Advisory</li>
-    </ul>
+            <label class="block">
+              <span class="text-gray-700">Email</span>
+              <input class="mt-1 input w-full rounded-lg border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500" type="email" name="email" required>
+            </label>
 
-    <h2>Company</h2>
-    <p><strong>Green Planet Advisory</strong><br>Dubai, UAE</p>
-  </div>
-</main>
+            <label class="block">
+              <span class="text-gray-700">Phone</span>
+              <input class="mt-1 input w-full rounded-lg border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500" type="tel" name="phone" required>
+            </label>
 
-<footer>
-  <div class="container">
-    <p class="small">© Green Planet Advisory. All rights reserved.</p>
-  </div>
-</footer>
+            <label class="block">
+              <span class="text-gray-700">Your project</span>
+              <textarea class="mt-1 input w-full rounded-lg border border-gray-200 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500" name="message" rows="5" placeholder="Tell us about your goals" required></textarea>
+            </label>
+
+            <button class="mt-2 inline-flex items-center justify-center bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-6 py-3 rounded-full transition" type="submit">
+              Send
+              <i class="fas fa-paper-plane ml-2"></i>
+            </button>
+            <p class="text-xs text-gray-500">By submitting, you agree to be contacted about your inquiry.</p>
+          </form>
+
+          <div id="success" class="mt-4 hidden bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-lg px-4 py-3">
+            Thanks! We received your message and will reply shortly.
+          </div>
+        </section>
+
+        <!-- Cards -->
+        <aside class="space-y-6">
+          <div class="card bg-white rounded-2xl shadow p-6">
+            <h3 class="text-lg font-semibold text-gray-800 mb-3">Direct contact</h3>
+            <ul class="space-y-2 text-gray-700">
+              <li class="flex items-start"><i class="fas fa-envelope text-emerald-600 mr-2 mt-1"></i><a href="mailto:info@greenplanet.eco" class="hover:text-emerald-700">info@greenplanet.eco</a></li>
+              <li class="flex items-start"><i class="fab fa-whatsapp text-emerald-600 mr-2 mt-1"></i><a href="https://wa.me/971529175892" class="hover:text-emerald-700">+971529175892</a></li>
+              <li class="flex items-start"><i class="fab fa-instagram text-emerald-600 mr-2 mt-1"></i><a href="https://instagram.com/greenplanet.ae" class="hover:text-emerald-700">@greenplanet.ae</a></li>
+              <li class="flex items-start"><i class="fab fa-linkedin text-emerald-600 mr-2 mt-1"></i><span>LinkedIn: Green Planet Advisory</span></li>
+            </ul>
+          </div>
+
+          <div class="card bg-white rounded-2xl shadow p-6">
+            <h3 class="text-lg font-semibold text-gray-800 mb-3">Company</h3>
+            <p class="text-gray-700"><strong>Green Planet Advisory</strong><br>Dubai, United Arab Emirates</p>
+          </div>
+
+          <div class="card bg-white rounded-2xl shadow p-6">
+            <h3 class="text-lg font-semibold text-gray-800 mb-3">Prefer email only?</h3>
+            <p class="text-gray-700">Email us at <a href="mailto:info@greenplanet.eco" class="text-emerald-700 hover:underline">info@greenplanet.eco</a> and we’ll get back within 1–2 business days.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer (shared) -->
+  <footer class="bg-gray-900 text-gray-400 py-12">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div>
+          <a href="index.html" class="text-sm font-bold bg-gradient-to-r from-emerald-600 to-emerald-800 bg-clip-text text-transparent">Green Planet Advisory</a>
+          <p class="mt-4">Building oxygen-rich spaces, sustainable businesses, and certifying the future.</p>
+          <div class="flex space-x-4 mt-4">
+            <a href="https://instagram.com/greenplanet.ae" class="text-gray-400 hover:text-white transition" aria-label="Instagram"><i class="fab fa-instagram text-xl"></i></a>
+            <a href="https://www.linkedin.com" class="text-gray-400 hover:text-white transition" aria-label="LinkedIn"><i class="fab fa-linkedin text-xl"></i></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-white font-semibold text-lg mb-4">Services</h3>
+          <ul class="space-y-2">
+            <li><a href="services.html" class="hover:text-white transition">Advisory &amp; Design</a></li>
+            <li><a href="services.html" class="hover:text-white transition">Implementation</a></li>
+            <li><a href="services.html" class="hover:text-white transition">Green Finance</a></li>
+            <li><a href="services.html" class="hover:text-white transition">Eco Certification</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-white font-semibold text-lg mb-4">Industries</h3>
+          <ul class="space-y-2">
+            <li><a href="services.html#hospitality" class="hover:text-white transition">Hospitality</a></li>
+            <li><a href="developers.html" class="hover:text-white transition">Real Estate</a></li>
+            <li><a href="services.html#education" class="hover:text-white transition">Education</a></li>
+            <li><a href="services.html#municipal" class="hover:text-white transition">Municipalities</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-white font-semibold text-lg mb-4">Contact</h3>
+          <ul class="space-y-2">
+            <li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-2 text-emerald-500"></i><span>Dubai, United Arab Emirates</span></li>
+            <li class="flex items-start"><i class="fas fa-envelope mt-1 mr-2 text-emerald-500"></i><a href="mailto:info@greenplanet.eco" class="hover:text-white">info@greenplanet.eco</a></li>
+            <li class="flex items-start"><i class="fab fa-whatsapp mt-1 mr-2 text-emerald-500"></i><a href="https://wa.me/971529175892" class="hover:text-white">+971529175892</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p>© <span id="year"></span> Green Planet Advisory. All rights reserved.</p>
+        <div class="flex space-x-6 mt-4 md:mt-0">
+          <a href="privacy.html" class="hover:text-white transition">Privacy Policy</a>
+          <a href="terms.html" class="hover:text-white transition">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Success banner via ?sent=1
+    (function(){
+      var params = new URLSearchParams(window.location.search);
+      if (params.get('sent') === '1') {
+        var el = document.getElementById('success');
+        if (el) el.classList.remove('hidden');
+      }
+    })();
+
+    // Mobile menu + year
+    document.addEventListener('DOMContentLoaded', function(){
+      const btn=document.getElementById('mobile-menu-button');
+      const menu=document.getElementById('mobile-menu');
+      if(btn && menu){
+        btn.addEventListener('click', ()=> {
+          const isHidden = menu.classList.toggle('hidden');
+          btn.setAttribute('aria-expanded', String(!isHidden));
+          document.body.classList.toggle('overflow-hidden', !isHidden);
+        });
+        document.addEventListener('click', (e)=>{
+          if(!menu.contains(e.target) && !btn.contains(e.target)){
+            menu.classList.add('hidden');
+            btn.setAttribute('aria-expanded','false');
+            document.body.classList.remove('overflow-hidden');
+          }
+        });
+        window.addEventListener('resize', ()=>{ if(window.innerWidth>=768){ menu.classList.add('hidden'); btn.setAttribute('aria-expanded','false'); document.body.classList.remove('overflow-hidden'); }});
+      }
+      const y=document.getElementById('year'); if(y){ y.textContent=new Date().getFullYear(); }
+    });
+  </script>
 </body>
 </html>

@@ -6,200 +6,391 @@
   <meta name="description" content="Dubai-based advisory for hydroponics, oxygen cafés, solar power, EV infrastructure, green financing, and the Green Planet Eco Certification.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#23a36f">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="canonical" href="https://greenplanet.eco/">
-  <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="icon" href="favicon.ico">
   <meta property="og:title" content="Green Planet Advisory">
   <meta property="og:description" content="We deploy hydroponics, oxygen cafés, solar, EV hubs, and green finance — and certify the future.">
   <meta property="og:image" content="https://greenplanet.eco/og/default-og.jpg">
   <meta property="og:type" content="website">
+  <!-- Tailwind + Fonts + Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Page-specific overrides (cascade after styles.css) */
-    .cta-row{display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:14px; margin-top:28px}
-    .hero .badges{gap:12px; row-gap:12px; margin-bottom:14px}
-    .hero .banner{max-width:960px; width:100%; height:300px; margin:10px auto 0; border-radius:14px; object-fit:cover; object-position:center}
-    @media (min-width:1200px){ .hero .banner{max-width:1100px; height:360px} }
-    .img.cert{width:min(100%, 720px); max-width:720px; height:auto; display:block; margin:16px auto 0}
-    .cta{min-height:48px}
+    body{font-family:'Poppins',sans-serif;scroll-behavior:smooth}
+    .hero-gradient{background:linear-gradient(135deg,rgba(16,185,129,.9) 0%,rgba(5,150,105,.9) 100%)}
+    .certification-badge{transition:transform .3s ease}
+    .certification-badge:hover{transform:scale(1.05)}
+    .project-card{transition:all .3s ease}
+    .project-card:hover{transform:translateY(-5px);box-shadow:0 20px 25px -5px rgba(0,0,0,0.1),0 10px 10px -5px rgba(0,0,0,0.04)}
+    .impact-stat{transition:all .3s ease}
+    .impact-stat:hover{transform:scale(1.05);background-color:rgba(16,185,129,.1)}
   </style>
 </head>
-<body>
-<header>
-  <div class="container nav">
-    <a href="index.html" class="logo">Green Planet Advisory</a>
-    <nav aria-label="Primary">
-      <ul>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="solar.html">Solar</a></li>
-        <li><a href="developers.html">Developers</a></li>
-        <li><a href="ev.html">EV Advisory</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+<body class="bg-gray-50">
+<!-- Header (shared) -->
+<header class="bg-white shadow-lg sticky top-0 z-50">
+  <div class="container mx-auto px-6 py-2">
+    <div class="flex items-center justify-between h-12">
+      <a href="index.html" class="text-sm font-bold bg-gradient-to-r from-emerald-600 to-emerald-800 bg-clip-text text-transparent" aria-label="Green Planet Advisory home">Green Planet Advisory</a>
+      <nav class="hidden md:flex items-center space-x-6" aria-label="Primary">
+        <a href="services.html" class="text-gray-700 font-medium text-sm hover:text-emerald-700">Services</a>
+        <a href="solar.html" class="text-gray-700 font-medium text-sm hover:text-emerald-700">Solar</a>
+        <a href="developers.html" class="text-gray-700 font-medium text-sm hover:text-emerald-700">Developers</a>
+        <a href="ev.html" class="text-gray-700 font-medium text-sm hover:text-emerald-700">EV Advisory</a>
+        <a href="projects.html" class="text-gray-700 font-medium text-sm hover:text-emerald-700">Projects</a>
+        <a href="contact.html" class="bg-gradient-to-r from-emerald-500 to-emerald-700 hover:from-emerald-600 hover:to-emerald-800 text-white px-4 py-1.5 text-sm rounded-full font-medium transition-all shadow-sm hover:shadow-md">Contact</a>
+      </nav>
+      <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-emerald-600 focus:outline-none" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg" role="dialog" aria-label="Mobile menu">
+    <div class="px-2 pt-2 pb-4 space-y-1">
+      <a href="services.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Services</a>
+      <a href="solar.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Solar</a>
+      <a href="developers.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Developers</a>
+      <a href="ev.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">EV Advisory</a>
+      <a href="projects.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Projects</a>
+      <a href="contact.html" class="block mt-2 bg-gradient-to-r from-emerald-500 to-emerald-700 hover:from-emerald-600 hover:to-emerald-800 text-white px-4 py-2 rounded-full font-medium transition-all shadow-sm hover:shadow-md text-center">Contact</a>
+    </div>
   </div>
 </header>
 
 <main id="main-content">
-  <section class="hero">
-    <div class="container">
-      <h1>We build oxygen-rich spaces, sustainable businesses, and certify the future.</h1>
-      <p>Green Planet Advisory, based in Dubai, partners with restaurants, cafés, real estate developers in the UAE and globally, municipalities, and governments to deploy hydroponics, oxygen cafés, solar power stations, EV infrastructure, and sustainable financing models.</p>
-      <p>🌱 We certify projects with the official <strong>Green Planet Eco Certification</strong> — covering Buildings, Hotels, Offices, Cafés, Restaurants, Electrical Cars, Schools, Universities, Kindergartens, and Beauty Salons.</p>
-
-      <div class="badges">
-        <span class="badge">Hydroponics</span>
-        <span class="badge">Fertilizer &amp; Nutrients</span>
-        <span class="badge">Oxygen Cafés</span>
-        <span class="badge">EV & Electrical Cars</span>
-        <span class="badge">Solar Power Stations</span>
-        <span class="badge">Green Planet Eco Certification</span>
-        <span class="badge">Green Financing & NFTs</span>
+  <!-- Hero -->
+  <section class="hero-gradient text-white">
+    <div class="container mx-auto px-6 py-20 md:py-28">
+      <div class="max-w-4xl">
+        <h1 class="text-4xl md:text-6xl font-bold leading-tight">We build oxygen-rich spaces, sustainable businesses, and certify the future.</h1>
+        <p class="text-lg md:text-2xl mt-5 text-emerald-50">Green Planet Advisory, based in Dubai, partners with restaurants, cafés, real estate developers in the UAE and globally, municipalities, and governments to deploy hydroponics, oxygen cafés, solar power stations, EV infrastructure, and sustainable financing models.</p>
+        <div class="flex flex-col sm:flex-row gap-3 mt-8">
+          <a href="services.html" class="bg-white text-emerald-700 hover:bg-gray-100 px-6 py-3 rounded-full font-semibold text-base md:text-lg transition">Explore Services</a>
+          <a href="contact.html" class="border-2 border-white hover:bg-white hover:text-emerald-700 px-6 py-3 rounded-full font-semibold text-base md:text-lg transition">Book a Call</a>
+        </div>
+        <div class="flex flex-wrap gap-2 mt-8">
+          <span class="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full text-sm">Hydroponics</span>
+          <span class="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full text-sm">Fertilizer &amp; Nutrients</span>
+          <span class="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full text-sm">Oxygen Cafés</span>
+          <span class="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full text-sm">EV &amp; Electrical Cars</span>
+          <span class="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full text-sm">Solar Power Stations</span>
+          <span class="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full text-sm">Eco Certification</span>
+          <span class="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full text-sm">Green Financing &amp; NFTs</span>
+        </div>
       </div>
-      <div class="cta-row">
-        <a class="cta" href="services.html">Explore Services</a>
-        <a class="cta secondary" href="contact.html">Book a Call</a>
-      </div>
-
-      <hr class="sep">
-
-      <img class="img banner" src="assets/images/home/hero.jpg" alt="Hydroponic vertical garden with sunlight entering an eco-designed space" loading="eager" decoding="async">
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <h2>What we do</h2>
-      <p class="lead">Advisory and design, implementation with vetted partners, and green finance — tailored for hospitality, F&amp;B, real estate, education, and cities.</p>
-      <div class="grid cards">
-        <article class="card">
-          <h3>Advisory & Design</h3>
-          <ul class="list">
+  <!-- Banner -->
+  <section class="bg-white">
+    <div class="container mx-auto px-6 py-10">
+      <img class="w-full h-72 md:h-96 object-cover rounded-2xl" src="assets/images/home/hero.jpg" alt="Hydroponic vertical garden with sunlight entering an eco-designed space" loading="eager" decoding="async">
+    </div>
+  </section>
+
+  <!-- What we do -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">What we do</h2>
+      <p class="max-w-3xl text-gray-600 mb-10">Advisory and design, implementation with vetted partners, and green finance — tailored for hospitality, F&amp;B, real estate, education, and cities.</p>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
+          <h3 class="text-xl font-bold mb-3">Advisory &amp; Design</h3>
+          <ul class="space-y-2 text-gray-700 list-disc pl-5">
             <li>Hydroponic walls and farm-to-table concepts</li>
             <li>Oxygen café layouts and guest experience design</li>
             <li>Sustainability roadmaps for F&amp;B, hospitality, real estate, and education</li>
             <li>Electrical Cars Advisory for EV adoption and charging</li>
-            <li>Green Planet Eco Certification support</li>
-            <li>Fertilizer strategy and nutrient management for hydroponics</li>
+            <li>Eco Certification support &amp; fertilizer strategy</li>
           </ul>
-        </article>
-        <article class="card">
-          <h3>Implementation</h3>
-          <ul class="list">
+        </div>
+        <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
+          <h3 class="text-xl font-bold mb-3">Implementation</h3>
+          <ul class="space-y-2 text-gray-700 list-disc pl-5">
             <li>Hydroponic suppliers and turnkey farms in the UAE</li>
             <li>Solar power stations for utility and rooftops</li>
             <li>EV charging hubs with solar and smart grid</li>
             <li>Permits, compliance, operations, and certification</li>
-            <li>Fertilizer supply, dosing, and monitoring solutions</li>
+            <li>Fertilizer supply, dosing, and monitoring</li>
           </ul>
-        </article>
-        <article class="card">
-          <h3>Finance & Tokens</h3>
-          <ul class="list">
+        </div>
+        <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
+          <h3 class="text-xl font-bold mb-3">Finance &amp; Tokens</h3>
+          <ul class="space-y-2 text-gray-700 list-disc pl-5">
             <li>Green project finance and ESG funds</li>
             <li>Carbon credit pathways and monetization</li>
             <li>Stablecoin payments and loyalty</li>
             <li>Green NFTs for community engagement</li>
           </ul>
-        </article>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <h2>Who we serve</h2>
-      <div class="grid cards">
-        <article class="card"><h3>Hospitality</h3><p>Hotels, resorts, and cafés integrating oxygen rituals, rooftop gardens, and in-venue hydroponics.</p></article>
-        <article class="card"><h3>Real Estate</h3><p>Residential & commercial assets lifted by solar, EV readiness, and Green Planet Eco Certification.</p></article>
-        <article class="card"><h3>Education</h3><p>Schools and universities with measurable indoor air quality gains and on-site greens.</p></article>
-        <article class="card"><h3>Municipalities</h3><p>City-scale programs for EV charging, solar hubs, and micro‑greens for urban cooling.</p></article>
+  <!-- Certification -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Green Planet Eco Certification</h2>
+      <p class="text-gray-600 mb-8 max-w-3xl">A universal mark of trust for buildings, hotels, offices, cafés, restaurants, schools, universities, kindergartens, beauty salons, and electrical cars.</p>
+      <img class="mx-auto max-w-xl w-full rounded-xl shadow-sm" src="assets/images/home/certification.jpg" alt="Eco certification emblem applied across buildings, hotels, offices and EVs" loading="lazy" decoding="async">
+    </div>
+  </section>
+
+  <!-- Certification Standards -->
+  <section id="standards" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Green Planet Eco Certified Global Standards</h2>
+      <p class="max-w-3xl text-gray-600 mb-10">Our certification evaluates eight domains across energy, water, buildings, waste, food, transport, social impact, and governance. Below is a concise overview of the requirements we assess.</p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- 1. Energy & Climate -->
+        <article class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
+          <div class="flex items-center mb-3">
+            <div class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center mr-3"><i class="fas fa-solar-panel text-emerald-600"></i></div>
+            <h3 class="text-lg font-semibold text-gray-800">1. Energy &amp; Climate</h3>
+          </div>
+          <ul class="list-disc pl-5 text-gray-700 space-y-1">
+            <li>Use of renewable energy sources (solar panels, wind energy, green tariffs).</li>
+            <li>Minimization of CO₂ and greenhouse gas emissions.</li>
+            <li>Carbon footprint accounting and a reduction plan.</li>
+          </ul>
+        </article>
+
+        <!-- 2. Water & Resources -->
+        <article class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
+          <div class="flex items-center mb-3">
+            <div class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center mr-3"><i class="fas fa-droplet text-emerald-600"></i></div>
+            <h3 class="text-lg font-semibold text-gray-800">2. Water &amp; Resources</h3>
+          </div>
+          <ul class="list-disc pl-5 text-gray-700 space-y-1">
+            <li>Water-saving systems (aerators, reuse, rainwater harvesting).</li>
+            <li>Minimization of leaks and water losses.</li>
+            <li>Eco-friendly wastewater treatment technologies.</li>
+          </ul>
+        </article>
+
+        <!-- 3. Buildings & Infrastructure -->
+        <article class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
+          <div class="flex items-center mb-3">
+            <div class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center mr-3"><i class="fas fa-building text-emerald-600"></i></div>
+            <h3 class="text-lg font-semibold text-gray-800">3. Buildings &amp; Infrastructure</h3>
+          </div>
+          <ul class="list-disc pl-5 text-gray-700 space-y-1">
+            <li>Use of energy-efficient and eco-friendly building materials.</li>
+            <li>Certification under international standards (LEED, BREEAM, Estidama, etc.).</li>
+            <li>Availability of green zones: vertical gardens, hydroponic walls, landscaping.</li>
+          </ul>
+        </article>
+
+        <!-- 4. Waste Management -->
+        <article class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
+          <div class="flex items-center mb-3">
+            <div class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center mr-3"><i class="fas fa-recycle text-emerald-600"></i></div>
+            <h3 class="text-lg font-semibold text-gray-800">4. Waste Management</h3>
+          </div>
+          <ul class="list-disc pl-5 text-gray-700 space-y-1">
+            <li>Separate collection and recycling of waste.</li>
+            <li>Reduction of single-use plastics.</li>
+            <li>Programs for reuse of materials.</li>
+          </ul>
+        </article>
+
+        <!-- 5. Food & Products -->
+        <article class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
+          <div class="flex items-center mb-3">
+            <div class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center mr-3"><i class="fas fa-seedling text-emerald-600"></i></div>
+            <h3 class="text-lg font-semibold text-gray-800">5. Food &amp; Products</h3>
+          </div>
+          <ul class="list-disc pl-5 text-gray-700 space-y-1">
+            <li>Use of organic, local, and hydroponic products.</li>
+            <li>Reduction of food waste (food-sharing, composting).</li>
+            <li>Minimization of packaging; use of eco-friendly containers.</li>
+          </ul>
+        </article>
+
+        <!-- 6. Transport & Mobility -->
+        <article class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
+          <div class="flex items-center mb-3">
+            <div class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center mr-3"><i class="fas fa-car-side text-emerald-600"></i></div>
+            <h3 class="text-lg font-semibold text-gray-800">6. Transport &amp; Mobility</h3>
+          </div>
+          <ul class="list-disc pl-5 text-gray-700 space-y-1">
+            <li>Use of electric or hybrid vehicles.</li>
+            <li>Installation of EV charging stations.</li>
+            <li>Plans to encourage public transport and cycling.</li>
+          </ul>
+        </article>
+
+        <!-- 7. Social Responsibility -->
+        <article class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
+          <div class="flex items-center mb-3">
+            <div class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center mr-3"><i class="fas fa-people-group text-emerald-600"></i></div>
+            <h3 class="text-lg font-semibold text-gray-800">7. Social Responsibility</h3>
+          </div>
+          <ul class="list-disc pl-5 text-gray-700 space-y-1">
+            <li>Employee support programs (health, eco‑habit training).</li>
+            <li>Local community involvement in eco‑projects.</li>
+            <li>Fair procurement and partnership policies.</li>
+          </ul>
+        </article>
+
+        <!-- 8. Management & Reporting -->
+        <article class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
+          <div class="flex items-center mb-3">
+            <div class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center mr-3"><i class="fas fa-clipboard-list text-emerald-600"></i></div>
+            <h3 class="text-lg font-semibold text-gray-800">8. Management &amp; Reporting</h3>
+          </div>
+          <ul class="list-disc pl-5 text-gray-700 space-y-1">
+            <li>Presence of a documented environmental policy.</li>
+            <li>Annual sustainability report on achievements.</li>
+            <li>Transparency and accessibility of data for auditors and the public.</li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- Minimum Conditions -->
+      <section class="mt-12">
+        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Minimum Conditions for Certification</h3>
+        <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-6">
+          <ul class="space-y-2 text-emerald-900">
+            <li class="flex"><i class="fas fa-check-circle text-emerald-600 mt-1 mr-2"></i><span>A documented environmental policy.</span></li>
+            <li class="flex"><i class="fas fa-check-circle text-emerald-600 mt-1 mr-2"></i><span>Compliance with at least 70% of criteria in each section.</span></li>
+            <li class="flex"><i class="fas fa-check-circle text-emerald-600 mt-1 mr-2"></i><span>Implementation of a monitoring and auditing system.</span></li>
+            <li class="flex"><i class="fas fa-check-circle text-emerald-600 mt-1 mr-2"></i><span>Verification by an independent expert (auditor).</span></li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </section>
+  <!-- Projects -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Featured Projects</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <article class="project-card bg-white rounded-xl shadow-md overflow-hidden">
+          <img class="w-full h-48 object-cover" src="assets/images/projects/hydroponic-wall.jpg" alt="Hydroponic wall inside a café" loading="lazy" decoding="async">
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Hydroponic wall in café</h3>
+            <p class="text-gray-600">Creates a fresher, healthier atmosphere.</p>
+          </div>
+        </article>
+        <article class="project-card bg-white rounded-xl shadow-md overflow-hidden">
+          <img class="w-full h-48 object-cover" src="assets/images/projects/oxygen-cafe.jpg" alt="Oxygen café with vertical farms" loading="lazy" decoding="async">
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Green Pay Café — Dubai</h3>
+            <p class="text-gray-600">Oxygen café with vertical farms and crypto-enabled loyalty.</p>
+          </div>
+        </article>
+        <article class="project-card bg-white rounded-xl shadow-md overflow-hidden">
+          <img class="w-full h-48 object-cover" src="assets/images/projects/ev-solar-hub.jpg" alt="EV charging hub with solar canopy and greenery" loading="lazy" decoding="async">
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Green Park Stations</h3>
+            <p class="text-gray-600">EV charging, solar, and micro-greens for urban cooling.</p>
+          </div>
+        </article>
+      </div>
+      <p class="text-center mt-8"><a href="projects.html" class="inline-flex items-center text-emerald-600 font-medium hover:text-emerald-700">See all projects <i class="fas fa-arrow-right ml-2"></i></a></p>
+    </div>
+  </section>
+
+  <!-- Restaurants -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <img class="w-full rounded-xl shadow-sm" src="assets/images/services/restaurant-concept.jpg" alt="Chef using hyper-local greens grown on site" loading="lazy" decoding="async">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">For Restaurants</h2>
+          <p class="text-gray-600 mb-6">“Hydroponics at Table,” menu co-creation, wellness and oxygen rituals, and a marketing pack with photos, reels, and green storytelling.</p>
+          <ul class="space-y-2 text-gray-700 list-disc pl-5">
+            <li>Hyper-local greens grown on-site</li>
+            <li>Farm-to-table concept development</li>
+            <li>Oxygen-infused dining experiences</li>
+            <li>Complete marketing package</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="impact">
-    <div class="container">
-      <h2>Impact</h2>
-      <div class="kpis">
-        <div class="kpi"><strong>90% water savings</strong><span>vs soil farming</span></div>
-        <div class="kpi"><strong>40% lower energy cost</strong><span>with solar power</span></div>
-        <div class="kpi"><strong>Lower CO₂</strong><span>via local greens and EV integration</span></div>
-        <div class="kpi"><strong>Healthier indoor air</strong><span>for schools and offices</span></div>
-        <div class="kpi"><strong>Higher valuations</strong><span>for green-certified properties</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <h2>Green Planet Eco Certification</h2>
-      <p class="lead">A universal mark of trust for buildings, hotels, offices, cafés, restaurants, schools, universities, kindergartens, beauty salons, and electrical cars.</p>
-      <img class="img cert" src="assets/images/home/certification.jpg" alt="Eco certification emblem applied across buildings, hotels, offices and EVs" loading="lazy" decoding="async">
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <h2>Featured Projects</h2>
-      <div class="grid cards">
-        <article class="card">
-          <img class="img" src="assets/images/projects/hydroponic-wall.jpg" alt="Hydroponic wall inside a café" loading="lazy" decoding="async">
-          <h3>Hydroponic wall in café</h3>
-          <p>Creates a fresher, healthier atmosphere.</p>
-        </article>
-        <article class="card">
-          <img class="img" src="assets/images/projects/oxygen-cafe.jpg" alt="Oxygen café with vertical farms" loading="lazy" decoding="async">
-          <h3>Green Pay Café — Dubai</h3>
-          <p>Oxygen café with vertical farms and crypto-enabled loyalty.</p>
-        </article>
-        <article class="card">
-          <img class="img" src="assets/images/projects/ev-solar-hub.jpg" alt="EV charging hub with solar canopy and greenery" loading="lazy" decoding="async">
-          <h3>Green Park Stations</h3>
-          <p>EV charging, solar, and micro-greens for urban cooling.</p>
-        </article>
-      </div>
-      <p><a href="projects.html">See all projects →</a></p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <h2>For Restaurants</h2>
-      <p class="lead">“Hydroponics at Table,” menu co-creation, wellness and oxygen rituals, and a marketing pack with photos, reels, and green storytelling.</p>
-      <img class="img" src="assets/images/services/restaurant-concept.jpg" alt="Chef using hyper-local greens grown on site" loading="lazy" decoding="async">
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <h2>How we work</h2>
-      <ol class="list">
-        <li><strong>Discover:</strong> Brief, goals, baseline metrics.</li>
-        <li><strong>Design:</strong> Concept, layout, and technical plan.</li>
-        <li><strong>Deliver:</strong> Procurement, build, certification.</li>
-        <li><strong>Grow:</strong> Training, monitoring, and marketing.</li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <h2>Talk to us</h2>
-      <p class="lead">Book a free 20-minute consultation.</p>
-      <a class="cta" href="contact.html">Contact</a>
+  <!-- Contact CTA -->
+  <section class="py-16 bg-emerald-600 text-white">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Talk to us</h2>
+      <p class="text-emerald-100 mb-6">Book a free 20-minute consultation.</p>
+      <a class="inline-block bg-white text-emerald-700 hover:bg-gray-100 px-6 py-3 rounded-full font-semibold transition" href="contact.html">Contact</a>
     </div>
   </section>
 </main>
 
-<footer>
-  <div class="container">
-    <p class="small"><strong>Green Planet Advisory</strong> · Dubai, UAE · Email: <a href="mailto:info@greenplanet.eco">info@greenplanet.eco</a> · Instagram: <a href="https://instagram.com/greenplanet.ae" target="_blank" rel="noopener"> @greenplanet.ae</a></p>
-    <p class="small">© Green Planet Advisory. All rights reserved.</p>
+<!-- Footer (shared) -->
+<footer class="bg-gray-900 text-gray-400 py-12">
+  <div class="container mx-auto px-6">
+    <div class="grid md:grid-cols-4 gap-8">
+      <div>
+        <a href="index.html" class="text-sm font-bold bg-gradient-to-r from-emerald-600 to-emerald-800 bg-clip-text text-transparent">Green Planet Advisory</a>
+        <p class="mt-4">Building oxygen-rich spaces, sustainable businesses, and certifying the future.</p>
+        <div class="flex space-x-4 mt-4">
+          <a href="https://instagram.com/greenplanet.ae" class="text-gray-400 hover:text-white transition" aria-label="Instagram"><i class="fab fa-instagram text-xl"></i></a>
+          <a href="https://www.linkedin.com" class="text-gray-400 hover:text-white transition" aria-label="LinkedIn"><i class="fab fa-linkedin text-xl"></i></a>
+        </div>
+      </div>
+      <div>
+        <h3 class="text-white font-semibold text-lg mb-4">Services</h3>
+        <ul class="space-y-2">
+          <li><a href="services.html" class="hover:text-white transition">Advisory &amp; Design</a></li>
+          <li><a href="services.html" class="hover:text-white transition">Implementation</a></li>
+          <li><a href="services.html" class="hover:text-white transition">Green Finance</a></li>
+          <li><a href="services.html" class="hover:text-white transition">Eco Certification</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-white font-semibold text-lg mb-4">Industries</h3>
+        <ul class="space-y-2">
+          <li><a href="services.html#hospitality" class="hover:text-white transition">Hospitality</a></li>
+          <li><a href="developers.html" class="hover:text-white transition">Real Estate</a></li>
+          <li><a href="services.html#education" class="hover:text-white transition">Education</a></li>
+          <li><a href="services.html#municipal" class="hover:text-white transition">Municipalities</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-white font-semibold text-lg mb-4">Contact</h3>
+        <ul class="space-y-2">
+          <li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-2 text-emerald-500"></i><span>Dubai, United Arab Emirates</span></li>
+          <li class="flex items-start"><i class="fas fa-envelope mt-1 mr-2 text-emerald-500"></i><a href="mailto:info@greenplanet.eco" class="hover:text-white">info@greenplanet.eco</a></li>
+          <li class="flex items-start"><i class="fab fa-whatsapp mt-1 mr-2 text-emerald-500"></i><a href="https://wa.me/971529175892" class="hover:text-white">+971529175892</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+      <p>© <span id="year"></span> Green Planet Advisory. All rights reserved.</p>
+      <div class="flex space-x-6 mt-4 md:mt-0">
+        <a href="privacy.html" class="hover:text-white transition">Privacy Policy</a>
+        <a href="terms.html" class="hover:text-white transition">Terms of Service</a>
+      </div>
+    </div>
   </div>
 </footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    const btn=document.getElementById('mobile-menu-button');
+    const menu=document.getElementById('mobile-menu');
+    if(btn && menu){
+      btn.addEventListener('click', ()=> {
+        const open = menu.classList.toggle('hidden') === false ? true : !menu.classList.contains('hidden');
+        btn.setAttribute('aria-expanded', String(open));
+        document.body.classList.toggle('overflow-hidden', open);
+      });
+      document.addEventListener('click', (e)=>{
+        if(!menu.contains(e.target) && !btn.contains(e.target)) {
+          menu.classList.add('hidden'); btn.setAttribute('aria-expanded','false'); document.body.classList.remove('overflow-hidden');
+        }
+      });
+      window.addEventListener('resize', ()=>{ if(window.innerWidth>=768){ menu.classList.add('hidden'); btn.setAttribute('aria-expanded','false'); document.body.classList.remove('overflow-hidden'); }});
+    }
+    const y=document.getElementById('year'); if(y){ y.textContent=new Date().getFullYear(); }
+  });
+</script>
 </body>
 </html>

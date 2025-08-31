@@ -2,61 +2,170 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Electrical Cars Advisory & Certification | Green Planet Advisory</title>
+  <title>EV Advisory & Certification | Green Planet Advisory</title>
   <meta name="description" content="EV strategies, charging networks linked to solar, certification standards, and frameworks for investors, governments, and developers.">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="canonical" href="https://greenplanet.eco/ev.html">
+
+  <!-- Tailwind / Fonts / Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Optional legacy CSS (kept for any shared classes) -->
   <link rel="stylesheet" href="assets/css/styles.css">
+
+  <style>
+    body{font-family:'Poppins',sans-serif;scroll-behavior:smooth}
+    .hero-gradient{background:linear-gradient(135deg,rgba(16,185,129,.9) 0%,rgba(5,150,105,.9) 100%)}
+    .project-card{transition:all .3s ease}
+    .project-card:hover{transform:translateY(-5px);box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 10px 10px -5px rgba(0,0,0,.04)}
+  </style>
 </head>
-<body>
-<header>
-  <div class="container nav">
-    <a href="index.html" class="logo">Green Planet Advisory</a>
-    <nav aria-label="Primary">
-      <ul>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="solar.html">Solar</a></li>
-        <li><a href="developers.html">Developers</a></li>
-        <li><a href="ev.html">EV Advisory</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+<body class="bg-gray-50">
+  <!-- Header (consistent across site) -->
+  <header class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto px-6 py-2">
+      <div class="flex items-center justify-between h-12">
+        <a href="index.html" class="text-sm font-bold bg-gradient-to-r from-emerald-600 to-emerald-800 bg-clip-text text-transparent" aria-label="Green Planet Advisory home">Green Planet Advisory</a>
+        <nav class="hidden md:flex items-center space-x-6" aria-label="Primary">
+          <a href="services.html" class="text-gray-700 font-medium text-sm hover:text-emerald-700">Services</a>
+          <a href="solar.html" class="text-gray-700 font-medium text-sm hover:text-emerald-700">Solar</a>
+          <a href="developers.html" class="text-gray-700 font-medium text-sm hover:text-emerald-700">Developers</a>
+          <a href="ev.html" class="text-gray-700 font-medium text-sm hover:text-emerald-700">EV Advisory</a>
+          <a href="projects.html" class="text-gray-700 font-medium text-sm hover:text-emerald-700">Projects</a>
+          <a href="contact.html" class="bg-gradient-to-r from-emerald-500 to-emerald-700 hover:from-emerald-600 hover:to-emerald-800 text-white px-4 py-1.5 text-sm rounded-full font-medium transition-all shadow-sm hover:shadow-md">Contact</a>
+        </nav>
+        <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-emerald-600 focus:outline-none" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg" role="dialog" aria-label="Mobile menu">
+      <div class="px-2 pt-2 pb-4 space-y-1">
+        <a href="services.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Services</a>
+        <a href="solar.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Solar</a>
+        <a href="developers.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Developers</a>
+        <a href="ev.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">EV Advisory</a>
+        <a href="projects.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-emerald-600 hover:bg-gray-50">Projects</a>
+        <a href="contact.html" class="block mt-2 bg-gradient-to-r from-emerald-500 to-emerald-700 hover:from-emerald-600 hover:to-emerald-800 text-white px-4 py-2 rounded-full font-medium transition-all shadow-sm hover:shadow-md text-center">Contact</a>
+      </div>
+    </div>
+  </header>
 
-<main class="section">
-  <div class="container">
-    <h1>Electrical Cars Advisory &amp; Certification</h1>
-    <p class="lead">We help governments, municipalities, and developers accelerate EV adoption with solar-linked charging networks and clear certification frameworks.</p>
+  <!-- Hero -->
+  <section class="hero-gradient text-white">
+    <div class="container mx-auto px-6 py-20 md:py-24">
+      <div class="max-w-3xl">
+        <h1 class="text-3xl md:text-5xl font-bold mb-4">Electrical Cars Advisory & Certification</h1>
+        <p class="text-lg md:text-xl text-emerald-100">We help governments, municipalities, and developers accelerate EV adoption with solar‑linked charging networks and clear certification frameworks.</p>
+      </div>
+    </div>
+  </section>
 
-    <img class="img banner" src="assets/images/ev/network.jpg" alt="City-wide EV charging network with solar canopies">
+  <!-- Content -->
+  <main class="py-14">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-10 items-start">
+        <div>
+          <img src="assets/images/ev/network.jpg" alt="City-wide EV charging network with solar canopies" class="w-full rounded-xl shadow-md object-cover">
+        </div>
+        <div>
+          <h2 class="text-2xl font-semibold text-gray-800 mb-4">How we help</h2>
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex"><i class="fas fa-check text-emerald-600 mt-1 mr-2"></i><span>Nationwide EV adoption strategies</span></li>
+            <li class="flex"><i class="fas fa-check text-emerald-600 mt-1 mr-2"></i><span>EV charging networks linked to solar power</span></li>
+            <li class="flex"><i class="fas fa-check text-emerald-600 mt-1 mr-2"></i><span>Certification standards and compliance for EV‑ready properties</span></li>
+            <li class="flex"><i class="fas fa-check text-emerald-600 mt-1 mr-2"></i><span>Investor and developer frameworks for EV infrastructure</span></li>
+            <li class="flex"><i class="fas fa-check text-emerald-600 mt-1 mr-2"></i><span>Advisory & Green Planet Eco Certification for electrical cars</span></li>
+          </ul>
 
-    <h2>How we help</h2>
-    <ul class="list">
-      <li>Nationwide EV adoption strategies</li>
-      <li>EV charging networks linked to solar power</li>
-      <li>Certification standards and compliance for EV-ready properties</li>
-      <li>Investor and developer frameworks for EV infrastructure</li>
-      <li>Advisory and Eco Certification for electrical cars with brands and real estate</li>
-    </ul>
+          <hr class="my-8">
 
-    <hr class="sep">
+          <h2 class="text-2xl font-semibold text-gray-800 mb-4">Impact</h2>
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex"><i class="fas fa-bolt text-emerald-600 mt-1 mr-2"></i><span>Faster EV adoption in cities</span></li>
+            <li class="flex"><i class="fas fa-leaf text-emerald-600 mt-1 mr-2"></i><span>Reduced emissions and improved air quality</span></li>
+            <li class="flex"><i class="fas fa-flag text-emerald-600 mt-1 mr-2"></i><span>Compliance with UAE sustainability goals</span></li>
+            <li class="flex"><i class="fas fa-bullhorn text-emerald-600 mt-1 mr-2"></i><span>Green marketing advantage for EV‑ready developments</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
 
-    <h2>Impact</h2>
-    <ul class="list">
-      <li>Faster EV adoption in cities</li>
-      <li>Reduced emissions and improved air quality</li>
-      <li>Compliance with UAE sustainability goals</li>
-      <li>Green marketing advantage for EV-ready developments</li>
-    </ul>
-  </div>
-</main>
+  <!-- Footer (consistent across site) -->
+  <footer class="bg-gray-900 text-gray-400 py-12">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div>
+          <a href="index.html" class="text-sm font-bold bg-gradient-to-r from-emerald-600 to-emerald-800 bg-clip-text text-transparent">Green Planet Advisory</a>
+          <p class="mt-4">Building oxygen-rich spaces, sustainable businesses, and certifying the future.</p>
+          <div class="flex space-x-4 mt-4">
+            <a href="https://instagram.com/greenplanet.ae" class="text-gray-400 hover:text-white transition" aria-label="Instagram"><i class="fab fa-instagram text-xl"></i></a>
+            <a href="https://www.linkedin.com" class="text-gray-400 hover:text-white transition" aria-label="LinkedIn"><i class="fab fa-linkedin text-xl"></i></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-white font-semibold text-lg mb-4">Services</h3>
+          <ul class="space-y-2">
+            <li><a href="services.html" class="hover:text-white transition">Advisory &amp; Design</a></li>
+            <li><a href="services.html" class="hover:text-white transition">Implementation</a></li>
+            <li><a href="services.html" class="hover:text-white transition">Green Finance</a></li>
+            <li><a href="services.html" class="hover:text-white transition">Eco Certification</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-white font-semibold text-lg mb-4">Industries</h3>
+          <ul class="space-y-2">
+            <li><a href="services.html#hospitality" class="hover:text-white transition">Hospitality</a></li>
+            <li><a href="developers.html" class="hover:text-white transition">Real Estate</a></li>
+            <li><a href="services.html#education" class="hover:text-white transition">Education</a></li>
+            <li><a href="services.html#municipal" class="hover:text-white transition">Municipalities</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-white font-semibold text-lg mb-4">Contact</h3>
+          <ul class="space-y-2">
+            <li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-2 text-emerald-500"></i><span>Dubai, United Arab Emirates</span></li>
+            <li class="flex items-start"><i class="fas fa-envelope mt-1 mr-2 text-emerald-500"></i><a href="mailto:info@greenplanet.eco" class="hover:text-white">info@greenplanet.eco</a></li>
+            <li class="flex items-start"><i class="fab fa-whatsapp mt-1 mr-2 text-emerald-500"></i><a href="https://wa.me/971529175892" class="hover:text-white">+971529175892</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p>© <span id="year"></span> Green Planet Advisory. All rights reserved.</p>
+        <div class="flex space-x-6 mt-4 md:mt-0">
+          <a href="#" class="hover:text-white transition">Privacy Policy</a>
+          <a href="#" class="hover:text-white transition">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-<footer>
-  <div class="container">
-    <p class="small">© Green Planet Advisory. All rights reserved.</p>
-  </div>
-</footer>
+  <!-- Mobile menu + year script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      const btn=document.getElementById('mobile-menu-button');
+      const menu=document.getElementById('mobile-menu');
+      if(btn && menu){
+        btn.addEventListener('click', ()=> {
+          const isHidden = menu.classList.toggle('hidden');
+          btn.setAttribute('aria-expanded', String(!isHidden));
+          document.body.classList.toggle('overflow-hidden', !isHidden);
+        });
+        document.addEventListener('click', (e)=>{
+          if(!menu.contains(e.target) && !btn.contains(e.target)){
+            menu.classList.add('hidden');
+            btn.setAttribute('aria-expanded','false');
+            document.body.classList.remove('overflow-hidden');
+          }
+        });
+        window.addEventListener('resize', ()=>{ if(window.innerWidth>=768){ menu.classList.add('hidden'); btn.setAttribute('aria-expanded','false'); document.body.classList.remove('overflow-hidden'); }});
+      }
+      const y=document.getElementById('year'); if(y){ y.textContent=new Date().getFullYear(); }
+    });
+  </script>
 </body>
 </html>

@@ -25,6 +25,16 @@
     .project-card:hover{transform:translateY(-5px);box-shadow:0 20px 25px -5px rgba(0,0,0,0.1),0 10px 10px -5px rgba(0,0,0,0.04)}
     .impact-stat{transition:all .3s ease}
     .impact-stat:hover{transform:scale(1.05);background-color:rgba(16,185,129,.1)}
+    /* Partners marquee slider */
+    .marquee-container{position:relative;overflow:hidden}
+    .logo-marquee{display:flex;align-items:center;gap:3rem;width:max-content;animation:marquee 40s linear infinite}
+    .logo-marquee:hover{animation-play-state:paused}
+    .logo-item{height:56px}
+    @media(min-width:768px){.logo-item{height:68px}}
+    .logo-img{height:100%;width:auto;object-fit:contain;filter:grayscale(100%);opacity:.8;transition:filter .2s ease,opacity .2s ease,transform .2s ease}
+    .logo-img:hover{filter:grayscale(0%);opacity:1;transform:scale(1.03)}
+    @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    @media (prefers-reduced-motion: reduce){.logo-marquee{animation:none}}
   </style>
 </head>
 <body class="bg-gray-50">
@@ -89,6 +99,38 @@
     </div>
   </section>
 
+  <!-- Partners slider -->
+  <section id="partners" class="py-16 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="flex items-end justify-between mb-8">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Our partners</h2>
+        <p class="hidden md:block text-gray-500">Trusted collaborators in hydroponics, construction, and sustainability.</p>
+      </div>
+
+      <div class="marquee-container">
+        <!-- Track 1 -->
+        <div class="logo-marquee">
+          <a class="logo-item" href="https://bluewayhydroponics.com" target="_blank" rel="noopener" aria-label="Blueway Hydroponics (opens in a new tab)">
+            <img class="logo-img" src="assets/images/home/bluewayhydroponics.jpeg" alt="Blueway Hydroponics logo" loading="lazy" decoding="async">
+          </a>
+          <div class="logo-item" role="img" aria-label="GGC Green Construction LLC">
+            <img class="logo-img" src="assets/images/home/GGCGreenConstructionLLC.jpeg" alt="GGC Green Construction LLC logo" loading="lazy" decoding="async">
+          </div>
+        </div>
+        <!-- Track 2 (duplicate) -->
+        <div class="logo-marquee absolute top-0 left-full" aria-hidden="true">
+          <a class="logo-item" href="https://bluewayhydroponics.com" target="_blank" rel="noopener">
+            <img class="logo-img" src="assets/images/home/bluewayhydroponics.jpeg" alt="" loading="lazy" decoding="async">
+          </a>
+          <div class="logo-item">
+            <img class="logo-img" src="assets/images/home/GGCGreenConstructionLLC.jpeg" alt="" loading="lazy" decoding="async">
+          </div>
+        </div>
+      </div>
+
+      <p class="mt-6 text-sm text-gray-500">Interested in partnering with us? <a href="contact.html" class="text-emerald-600 hover:text-emerald-700 font-medium">Get in touch</a>.</p>
+    </div>
+  </section>
   <!-- What we do -->
   <section class="py-16 bg-gray-50">
     <div class="container mx-auto px-6">
